@@ -70,7 +70,7 @@ feedback-system/
 
 1. **Clone or Download**
    ```bash
-   git clone https://github.com/techyrushi/feedback-system.git
+   git clone https://github.com/Techyrushi/feedback-system.git
    ```
 
 2. **Import Database**
