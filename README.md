@@ -121,17 +121,18 @@ feedback-system/
 
 ---
 
-## 📄 SQL Schema (`feedback.sql`)
+## 📄 SQL Schema (`feedback_system.sql`)
 
 ```sql
-CREATE TABLE `feedbacks` (
-  `id` INT AUTO_INCREMENT PRIMARY KEY,
-  `full_name` VARCHAR(100) NOT NULL,
-  `email` VARCHAR(100) NOT NULL UNIQUE,
-  `rating` INT NOT NULL,
-  `message` TEXT NOT NULL,
-  `status` ENUM('pending','approved','rejected') DEFAULT 'pending',
-  `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE feedback (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    message VARCHAR(250) NOT NULL,
+    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 ```
 
